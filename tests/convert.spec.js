@@ -89,6 +89,13 @@ describe('Test convert method', () => {
 		expect(convert(markdown)).toBe(tgMarkdown);
 	});
 
+	it('Link with parentheses', () => {
+		const markdown = '[Atlassian](http://atlas()sian.com)';
+		const tgMarkdown = '[Atlassian](http://atlas\\(\\)sian.com)\n';
+		expect(convert(markdown)).toBe(tgMarkdown);
+	});
+
+
 	it('Link that is already encoded', () => {
 		const markdown = '[Atlassian](http://atlassian.com?s=%7B0622CBE5)';
 		const tgMarkdown = '[Atlassian](http://atlassian.com?s=%7B0622CBE5)\n';
